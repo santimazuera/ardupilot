@@ -18,6 +18,7 @@
 #include <AP_HAL/AP_HAL.h>
 #include <AP_OpticalFlow/AP_OpticalFlow.h>
 #include <AP_Vehicle/AP_Vehicle.h>
+#include <../ArduCopter/UserParams_GCS.h>
 
 #include "ap_version.h"
 #include "GCS.h"
@@ -884,9 +885,15 @@ void GCS_MAVLINK::send_radio_in(uint8_t receiver_rssi)
     uint32_t now = AP_HAL::millis();
     mavlink_status_t *status = mavlink_get_channel_status(chan);
 
-    uint16_t values[18];
+    int16_t values[18];
     memset(values, 0, sizeof(values));
-    hal.rcin->read(values, 18);
+    //hal.rcin->read(values, 18);
+        for (uint8_t i=0; i<8; i++){
+            values[i] = (int16_t)(user_sensor.get_RH(i)*100.0);
+        }
+        for (uint8_t i=8; i<12; i++){
+            values[i] = (int16_t)(user_sensor.get_IMET(i-8)*100.0);
+        }
 
     if (status && (status->flags & MAVLINK_STATUS_FLAG_OUT_MAVLINK1)) {
         // for mavlink1 send RC_CHANNELS_RAW, for compatibility with OSD implementations
@@ -930,7 +937,7 @@ void GCS_MAVLINK::send_radio_in(uint8_t receiver_rssi)
         values[15],
         values[16],
         values[17],
-        receiver_rssi);        
+        receiver_rssi);
 }
 
 void GCS_MAVLINK::send_raw_imu(const AP_InertialSensor &ins, const Compass &compass)
