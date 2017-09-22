@@ -77,27 +77,48 @@ void Copter::userhook_init()
 //    coeff[3][1] = 2.61500024f * (float)pow(10, -4);
 //    coeff[3][2] = 1.49421629f * (float)pow(10, -7);
 
+    //RED COPTERSONDE SENSORS
+    //IMET temp number 45363:
+    coeff[0][0] = 9.93118592f * (float)pow(10, -4);
+    coeff[0][1] = 2.63743049f * (float)pow(10, -4);
+    coeff[0][2] = 1.47415476f * (float)pow(10, -7);
+
+    //IMET temp number 48622:
+    coeff[1][0] = 1.00880279f * (float)pow(10, -3);
+    coeff[1][1] = 2.61500024f * (float)pow(10, -4);
+    coeff[1][2] = 1.49421629f * (float)pow(10, -7);
+
+    //IMET temp number 45363:
+    coeff[2][0] = 9.93118592f * (float)pow(10, -4);
+    coeff[2][1] = 2.63743049f * (float)pow(10, -4);
+    coeff[2][2] = 1.47415476f * (float)pow(10, -7);
+
+    //IMET temp number 48622:
+    coeff[3][0] = 1.00880279f * (float)pow(10, -3);
+    coeff[3][1] = 2.61500024f * (float)pow(10, -4);
+    coeff[3][2] = 1.49421629f * (float)pow(10, -7);
+
 
 //    //ORANGE COPTERSONDE SENSORS
-    //IMET temp number 48623:
-    coeff[0][0] = 1.00733068f * (float)pow(10, -3);
-    coeff[0][1] = 2.62299300f * (float)pow(10, -4);
-    coeff[0][2] = 1.48361439f * (float)pow(10, -7);
+//    //IMET temp number 48623:
+//    coeff[0][0] = 1.00733068f * (float)pow(10, -3);
+//    coeff[0][1] = 2.62299300f * (float)pow(10, -4);
+//    coeff[0][2] = 1.48361439f * (float)pow(10, -7);
 
-    //IMET temp number 48628:
-    coeff[1][0] = 9.89775772f * (float)pow(10, -4);
-    coeff[1][1] = 2.64144606f * (float)pow(10, -4);
-    coeff[1][2] = 1.42274703f * (float)pow(10, -7);
+//    //IMET temp number 48628:
+//    coeff[1][0] = 9.89775772f * (float)pow(10, -4);
+//    coeff[1][1] = 2.64144606f * (float)pow(10, -4);
+//    coeff[1][2] = 1.42274703f * (float)pow(10, -7);
 
-    //IMET temp number 48627:
-    coeff[2][0] = 1.00097308f * (float)pow(10, -3);
-    coeff[2][1] = 2.62806129f * (float)pow(10, -4);
-    coeff[2][2] = 1.46350112f * (float)pow(10, -7);
+//    //IMET temp number 48627:
+//    coeff[2][0] = 1.00097308f * (float)pow(10, -3);
+//    coeff[2][1] = 2.62806129f * (float)pow(10, -4);
+//    coeff[2][2] = 1.46350112f * (float)pow(10, -7);
 
-    //IMET temp number 45361:
-    coeff[3][0] = 9.89681465f * (float)pow(10, -4);
-    coeff[3][1] = 2.64132862f * (float)pow(10, -4);
-    coeff[3][2] = 1.45628002f * (float)pow(10, -7);
+//    //IMET temp number 45361:
+//    coeff[3][0] = 9.89681465f * (float)pow(10, -4);
+//    coeff[3][1] = 2.64132862f * (float)pow(10, -4);
+//    coeff[3][2] = 1.45628002f * (float)pow(10, -7);
 
     rawT=0; rawV=0;
 
